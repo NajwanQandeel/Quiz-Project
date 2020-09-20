@@ -1,17 +1,70 @@
-
-body {
-	background-color: silver;
+body{
+	background-color : silver;
 }
-h1 {
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-	font-size: 300%;
+ h1 {
+	 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+ 	 font-size: 40px;
 	 text-align: center;
 	 font-style: oblique;
 	 font-weight: bolder;
-    color: #4CAF90;
-  background-color: black;
-  color: white;
+     color: #4CAF90;
+     background-color:firebrick;
+	 color: white;
+	 padding: 2%;
+	margin-bottom: 0.1cm;
+	margin-top: 0.3cm;
 
+} 
+
+h2{
+	font-size: .5cm;
+	font-weight: bold;
+	color: black;
+	position:absolute;
+	left:80%;
+	top:20%;
+	
+	
 }
 
+.choice{
+	display: block;
+	margin-left: 14px;
 
+} 
+.qustion{
+	margin: 15px 0 5px 0;
+} 
+
+.container{
+
+	width: 98%;
+	background-color:aquamarine;
+	margin: auto ;
+	padding: 15px;
+} 
+#results{
+color:firebrick;
+background-color: fuchsia;
+width: 400px;
+height: 60px;
+margin: auto;
+text-align: center;
+line-height: 60px;
+font-size: 30px;
+}
+#submit{
+width: 70px;
+height: 50px;
+margin: 20px;
+font-size: 20px;
+padding: 5px;
+
+}
+header{
+	/* background-image: url(./Quiz-Logo.jpg); 
+	background-size: contain;
+	background-position: center; */
+	/* height: 50px; */
+	
+}

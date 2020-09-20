@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -10,15 +10,30 @@
 <body>
     
 <header>
-    <h1>Quiz App</h1>
+   <h1>Quiz App</h1>
+   <h2><span id="TimeShow">Time Remaining:</h2>
 </header>
+
 
 <main>
 <div class="container">
+
+
+<div id="quiz">
+
 </div>
-<div id="quiz"></div>
-<button id="submit">Submit Quiz</button>
-<div id="results"></div>
+
+<button id="submit" onclick="checkAnswers()">submit</button>
+<!-- <button id="submit"> submit</button> -->
+
+<div id="results">
+    submit to show your result
+</div>
+
+
+
+
+</div>
 </main>
 
 <footer>
