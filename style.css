@@ -1,9 +1,9 @@
 body{
 	background-color : silver;
 }
-h1 {
+ h1 {
 	 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
- 	 font-size: 300%;
+ 	 font-size: 40px;
 	 text-align: center;
 	 font-style: oblique;
 	 font-weight: bolder;
@@ -11,7 +11,7 @@ h1 {
      background-color:firebrick;
      color: white;
 
-}
+} 
 
 .choice{
 	display: block;
@@ -29,3 +29,46 @@ h1 {
 	margin: auto ;
 	padding: 15px;
 } 
+#results{
+color:firebrick;
+background-color: fuchsia;
+width: 400px;
+height: 60px;
+margin: auto;
+text-align: center;
+line-height: 60px;
+font-size: 30px;
+}
+#submit{
+width: 70px;
+height: 50px;
+margin: 20px;
+font-size: 20px;
+padding: 5px;
+
+}
+/* header{ */
+	/* background-image: url(./Quiz-Logo.jpg); 
+	background-size: contain;
+	background-position: center; */
+	/* height: 50px; */
+	
+/* } */
+
+.questionWithChoices, #submit,#results,#time {
+	display : none;
+	
+	
+}
+
+h3{
+	margin: auto;
+	text-align: center;
+}
+#start{
+width: 80px;
+height: 60px;
+margin: 20px;
+font-size: 20px;
+padding: 5px
+}
