@@ -1,3 +1,11 @@
+
+/*first step:
+-- we create our questions in an array of objects,
+-- each object have three keys (qustion,answers,correctAnswer)
+-- the value of question key  is a string 
+-- the value of answers key is an object with four keys ,each key has a string value (these values reflect the choices for each question)
+-- the value of correcrAnswer key is a string (the correct choice or answer for  the question )
+ */
 const myQustion = [
     {
         qustion:"where the css file should be linked ?",
@@ -120,16 +128,19 @@ correcrAnswer: "a"
       }
 ]
 
-
+/* second step :
+-- we create a function called (buildQuiz) to build our quiz 
+ */
 const output = [];
 
 var bulidQuiz = ()=>{
-
+ //for each question in myQuestion array
     myQustion.forEach((currQustion,num)=>{
        
         var answers = []
-        
+       //for each choice for the same question 
         for(letter in currQustion.answers){
+          //add html radio button
             answers.push(
                 `<lable class="choice"> 
                     <input type="radio" name="qustion${num}" value="${letter}">
@@ -140,7 +151,7 @@ var bulidQuiz = ()=>{
              
         }
         
-
+// add this question and its answers to the output 
     output.push(`
 
         <div class="questionWithChoices">
@@ -165,17 +176,21 @@ $("#quiz").append(output)
 const result = $("#result") ;
 
 var checkAnswers = ()=>{
+  // gather answer  from our quiz
     const answeredQuests = $(".answers")
+    	// keep track of user's answers
     let count = 0;
+     // for each question
     myQustion.forEach((currQustion,num) => {
         const answeredQuest = answeredQuests[num];
+           // find selected answer
         let userAnswer = $(`input[name="qustion${num}"]:checked`).val() || ""
-        
+          // if answer is correct
         if(userAnswer === currQustion.correcrAnswer){
-            
+         // add to the count of correct answers     
         count++;
     }
-
+// on submit, show results --  show number of correct answers out of total
     $("#results").text(`your result is : ${count} / ${myQustion.length}`)
     $(".questionWithChoices").css("display","none");
     $("#time").css("display","none");
@@ -195,6 +210,7 @@ var checkAnswers = ()=>{
 
 var myVar ;
 function startQuiz (){
+  // before start the quiz the quiz hide ,after click it the timer will start and the quiz apear
   $(".questionWithChoices").css("display","block");
   $("#submit").css("display","block");
   $("#results").css("display","block");
