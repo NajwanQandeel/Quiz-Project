@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head runat="server">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -11,11 +11,16 @@
     
 <header>
    <h1>Quiz App</h1>
-   <h2 id="TimeShow">Time Remaining:</h2>
+   <h3>   <span id="demo"></span>
+    <span id="time"> from 5 min</span>
+    </h3>
 </header>
 
 
 <main>
+
+    
+ 
 <div class="container">
 
 
@@ -23,6 +28,7 @@
 
 </div>
 
+<button id="start" onclick="startQuiz()">Start</button>
 <button id="submit" onclick="checkAnswers()">submit</button>
 <!-- <button id="submit"> submit</button> -->
 

@@ -1,18 +1,10 @@
-/*first step:
--- we create our questions in an array of objects,
--- each object have three keys (qustion,answers,correctAnswer)
--- the value of question key  is a string 
--- the value of answers key is an object with four keys ,each key has a string value (these values reflect the choices for each question)
--- the value of correcrAnswer key is a string (the correct choice or answer for  the question )
- */
 const myQustion = [
     {
-        qustion:"What is laughing gas? ?",
+        qustion:"where the css file should be linked ?",
         answers:{
-         a:"Nitrous Oxide",
-         b:"Carbon monoxide",
-         c:"Sulphur dioxide",
-         d:"Hydrogen peroxide",
+         a:"on the head",
+         b:"on the body",
+         c:"after close body's element",
         },
       correcrAnswer: "a"
   }, 
@@ -128,19 +120,16 @@ correcrAnswer: "a"
       }
 ]
 
-/* second step :
--- we create a function called (buildQuiz) to build our quiz 
- */
+
 const output = [];
 
 var bulidQuiz = ()=>{
-   //for each question in myQuestion array 
+
     myQustion.forEach((currQustion,num)=>{
        
         var answers = []
-      //for each choice for the same question
+        
         for(letter in currQustion.answers){
-           //add html radio button
             answers.push(
                 `<lable class="choice"> 
                     <input type="radio" name="qustion${num}" value="${letter}">
@@ -151,13 +140,15 @@ var bulidQuiz = ()=>{
              
         }
         
- // add this question and its answers to the output 
+
     output.push(`
 
-        <div class="qustion"> ${num+1}: ${currQustion.qustion}</div>
+        <div class="questionWithChoices">
 
-        <div class="answers"> ${answers.join("")}</div>
+          <div class="qustion"> ${num+1}: ${currQustion.qustion}</div>
 
+          <div class="answers"> ${answers.join("")}</div>
+        <div>
         `)
 
     
@@ -167,34 +158,73 @@ var bulidQuiz = ()=>{
 }
 
 bulidQuiz()
- //combine our output list into one string of html and put it on the page
+
 $("#quiz").append(output)
 
 
 const result = $("#result") ;
-// gather answer containers from our quiz
+
 var checkAnswers = ()=>{
     const answeredQuests = $(".answers")
-    	// keep track of user's answers
     let count = 0;
-    // for each question...
     myQustion.forEach((currQustion,num) => {
         const answeredQuest = answeredQuests[num];
-        // find selected answer
         let userAnswer = $(`input[name="qustion${num}"]:checked`).val() || ""
-        // if answer is correct
+        
         if(userAnswer === currQustion.correcrAnswer){
-        // add to the number of correct answers    
+            
         count++;
     }
-//// on submit, show results --  show number of correct answers out of total
+
     $("#results").text(`your result is : ${count} / ${myQustion.length}`)
-   
+    $(".questionWithChoices").css("display","none");
+    $("#time").css("display","none");
+    $("#demo").css("display","none");
+    $("#demo").text("");
+    $("#submit").css("display","none");
+    $("#start").css("display","block");
+    $("#start").text("start again");
+
+    clearInterval(myVar)
     
 });
 
 }
 
 
-var time = checkAnswers.setTimeout(5000)
-$("#TimeShow").append(time)
+
+var myVar ;
+function startQuiz (){
+  $(".questionWithChoices").css("display","block");
+  $("#submit").css("display","block");
+  $("#results").css("display","block");
+  $("#start").css("display","none");
+  $("#time").css("display","inline");
+  $("#demo").css("display","inline");
+  $("#start").text("start again");
+
+    var d = 0;
+    
+     myVar = setInterval(myTimer,1000)
+
+    function myTimer() {
+
+    setTimeout(function () {
+      checkAnswers();
+      clearInterval(myVar)
+      timer = "time finished"
+      document.getElementById("demo").innerHTML = timer
+      $(".questionWithChoices").css("display","none");
+      $("#time").css("display","none");
+
+      
+    },500000);
+
+    d++
+    timer = `running time ${parseInt( d / 60)}:${d % 60}`
+   
+     document.getElementById("demo").innerHTML = timer
+}
+
+}
+

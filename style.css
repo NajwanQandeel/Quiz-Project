@@ -9,23 +9,9 @@ body{
 	 font-weight: bolder;
      color: #4CAF90;
      background-color:firebrick;
-	 color: white;
-	 padding: 2%;
-	margin-bottom: 0.1cm;
-	margin-top: 0.3cm;
+     color: white;
 
 } 
-
-h2{
-	font-size: .5cm;
-	font-weight: bold;
-	color: black;
-	position:absolute;
-	left:80%;
-	top:20%;
-	
-	
-}
 
 .choice{
 	display: block;
@@ -61,10 +47,28 @@ font-size: 20px;
 padding: 5px;
 
 }
-header{
+/* header{ */
 	/* background-image: url(./Quiz-Logo.jpg); 
 	background-size: contain;
 	background-position: center; */
 	/* height: 50px; */
 	
+/* } */
+
+.questionWithChoices, #submit,#results,#time {
+	display : none;
+	
+	
+}
+
+h3{
+	margin: auto;
+	text-align: center;
+}
+#start{
+width: 80px;
+height: 60px;
+margin: 20px;
+font-size: 20px;
+padding: 5px
 }
